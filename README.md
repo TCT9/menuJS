@@ -44,8 +44,7 @@ Após isso a dependência será baixada e estará pronta para ser usada em nosso
 O VS Code será inicializado na pasta ProjMenu. Agora crie um arquivo chamado "exemplo.js" ṕara fazer um teste.
 
 
-`
-const Menu = require('menujs');
+`const Menu = require('menujs');
 
 const objMenu = new Menu(opcoes());
 
@@ -89,6 +88,5 @@ function opcoes() {
         ]
     };
 
-}
-`
+}`
 
