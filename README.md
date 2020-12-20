@@ -20,11 +20,11 @@ Um menu simples para terminal em Javascript para as aulas de Lógica e Algoritmo
 
 Logo em seguida serão exibidas estas mensagens: 
 
-`This utility will walk you through creating a package.json file.
-It only covers the most common items, and tries to guess sensible defaults.
-See npm help init for definitive documentation on these fields and exactly what they do.
-Use npm install <pkg> afterwards to install a package and save it as a dependency in the package.json file.
-Press ^C at any time to quit. package name: (projmenu)`
+`This utility will walk you through creating a package.json file.  
+It only covers the most common items, and tries to guess sensible defaults.  
+See npm help init for definitive documentation on these fields and exactly what they do.  
+Use npm install <pkg> afterwards to install a package and save it as a dependency in the package.json file.  
+Press ^C at any time to quit. package name: (projmenu)`  
 
 Apenas confirme tudo com `ENTER`, pois depois você poderá alterar o aquivo que será criado. 
 No final digite "*yes*" para confirmar ou `ENTER`.
