@@ -1,0 +1,22 @@
+{
+  "name": "menujs",
+  "version": "1.0.0",
+  "description": "Um menu simples para terminal em JS para as aulas de Lógica e Algoritmos I",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TCT9/menuJS.git"
+  },
+  "keywords": [
+    "menuJS"
+  ],
+  "author": "Lúcius Matos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TCT9/menuJS/issues"
+  },
+  "homepage": "https://github.com/TCT9/menuJS#readme"
+}
