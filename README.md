@@ -43,50 +43,50 @@ Após isso a dependência será baixada e estará pronta para ser usada em nosso
 
 O VS Code será inicializado na pasta ProjMenu. Agora crie um arquivo chamado "exemplo.js" ṕara fazer um teste.
 
+    const Menu = require('menujs');
 
-`const Menu = require('menujs');
+    const objMenu = new Menu(opcoes());
 
-const objMenu = new Menu(opcoes());
-
-function opcoes() {
+    function opcoes() {
     
-    return {
-        menu : [
-            "1 - Entrada de dados",
-            "2 - Saída de dados",
-            "3 - Imprimir",
-            "4 - Sair\n"
-        ],
+        return {
+            menu : [
+                "1 - Entrada de dados",
+                "2 - Saída de dados",
+                "3 - Imprimir",
+                "4 - Sair\n"
+            ],
 
-        prompt: "Escolha uma opcao entre 1 e 4: ", 
+            prompt: "Escolha uma opcao entre 1 e 4: ", 
 
-        function_default: function function_default(){
-            console.log("Selecione uma opção válida entre 1 e 4");
-        },
-
-        key_sair: "4",
-
-        function_sair: function function_sair(){
-            console.log("Saindo...");
-        },
-
-        array_keys: ["1", "2", "3"],
-
-        array_functions: [
-
-            function(){
-                console.log("Opcao 1 selecionada");
+            function_default: function function_default(){
+                console.log("Selecione uma opção válida entre 1 e 4");
             },
-        
-            function(){
-                console.log("Opcao 2 selecionada");
-            },
-        
-            function(){
-                console.log("Opcao 3 selecionada");
-            }
-        ]
-    };
 
-}`
+            key_sair: "4",
+
+            function_sair: function function_sair(){
+                console.log("Saindo...");
+            },
+
+            array_keys: ["1", "2", "3"],
+
+            array_functions: [
+
+                function(){
+                    console.log("Opcao 1 selecionada");
+                },
+        
+                function(){
+                    console.log("Opcao 2 selecionada");
+                },
+        
+                function(){
+                    console.log("Opcao 3 selecionada");
+                }
+            ]
+        };
+
+    }
+
 
