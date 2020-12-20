@@ -11,7 +11,7 @@ Um menu simples para terminal em Javascript para as aulas de Lógica e Algoritmo
 
 2) Depois entre na pasta criada
 
-    `tct9@tct9-Aspire-A515-51G:$ cd ProjMenu`
+    `tct9@tct9Aspire-A515-51G:$ cd ProjMenu`
 
     `tct9@tct9-Aspire-A515-51G:\ProjMenu$`
 
@@ -25,6 +25,7 @@ Logo em seguida serão exibidas estas mensagens:
     It only covers the most common items, and tries to guess sensible defaults.  
     See 'npm help init'  for definitive documentation on these fields and exactly what  they do.    
     Use 'npm install <pkg>'  afterwards to install a package  and save it as a  dependency in the package.json file.  
+    
     Press ^C at any time to quit. package name: (projmenu)  
 
 Apenas confirme tudo com `ENTER`, pois depois você poderá alterar o aquivo que será criado.  
