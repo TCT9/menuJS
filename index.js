@@ -2,7 +2,6 @@
 let new_Menu = ({menu, prompt, function_default, key_sair, function_sair, array_keys, array_functions}) => {
 
     //Isolando nossas variáveis e métodos para serem privados.
-    //{
 
         this.menu = menu;           //array de strings com os itens do menu
         this.prompt = prompt;       //texto do prompt. Aguarda a digitação de uma opção
@@ -55,10 +54,7 @@ let new_Menu = ({menu, prompt, function_default, key_sair, function_sair, array_
             }
 
         });
-
-    //}
     
 }
-
 
  module.exports = new_Menu;
