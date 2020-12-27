@@ -43,50 +43,68 @@ Após isso a dependência será baixada e estará pronta para ser usada em nosso
 
 O VS Code será inicializado na pasta ProjMenu. Agora crie um arquivo chamado "exemplo.js" ṕara fazer um teste.
 
-    const Menu = require('menujs');
+    let MenuJS = require('menujs');
 
-    const objMenu = new Menu(opcoes());
+    let objMenu = MenuJS()
+    .Menu([
+        "1 - Salário",
+        "2 - Imprima salário",
+        "3 - Percentual de desconto",
+        "4 - Imprima o percentual de desconto",
+        "5 - Imprima salário com desconto",
+        "6 - Sair\n"
+    ])
+    .Prompt("Selecione uma opção entre 1 e 6: ")
+    .Keys(["1", "2", "3", "4", "5", "6"])
+    .KeyExit("6")
+    .InvalidKeyCase("Opção inválida! Selecione uma opção entre 1 e 6: ")
+    .CallBackFuncs(
+        Array_Funcoes()
+    );
 
-    function opcoes() {
+    function Array_Funcoes() {
+
+        salario = 0;
+        percentual_Desconto = 0;
     
-        return {
-            menu : [
-                "1 - Entrada de dados",
-                "2 - Saída de dados",
-                "3 - Imprimir",
-                "4 - Sair\n"
-            ],
+        let scanf = require('scanf');
 
-            prompt: "Escolha uma opcao entre 1 e 4: ", 
+        function Salario() {
+            process.stdout.write("\tInforme o Salário: ");
+            salario = scanf("%f");
 
-            function_default: function function_default(){
-                console.log("Selecione uma opção válida entre 1 e 4");
-            },
+            if (salario <= 0){
+                console.log("\tSalário inválido. Informe um valor maior do que zero.");
+                Salario();
+            }
+        }
 
-            key_sair: "4",
+        function ImprimaSalario() {
+            console.log("\tSalario: " + salario);
+        }
 
-            function_sair: function function_sair(){
-                console.log("Saindo...");
-            },
-
-            array_keys: ["1", "2", "3"],
-
-            array_functions: [
-
-                function(){
-                    console.log("Opcao 1 selecionada");
-                },
+        function PercentualDesconto() {
+            process.stdout.write("\tInforme o percentual de desconto: ");
+            percentual_Desconto = scanf("%f");
         
-                function(){
-                    console.log("Opcao 2 selecionada");
-                },
-        
-                function(){
-                    console.log("Opcao 3 selecionada");
-                }
-            ]
-        };
+            if (percentual_Desconto < 0 || percentual_Desconto > 1){
+                console.log("\tPercentual de desconto inválido. Informe um valor entre 0 e 1");
+                PercentualDesconto();
+            }
+        }
+
+        function ImprimaPercentualDesconto() {
+            console.log("\tPercentual de desconto: " + percentual_Desconto);
+        }
+
+        function SalarioComDesconto() {
+            console.log("\tSalário com desconto: " + (1 - percentual_Desconto)*salario);
+        }
+
+        function Sair() {
+            console.log("\tSaindo...");
+        }
+
+        return [Salario, ImprimaSalario, PercentualDesconto, ImprimaPercentualDesconto, SalarioComDesconto, Sair];
 
     }
-
-
