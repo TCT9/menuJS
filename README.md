@@ -3,6 +3,10 @@
 
 Um menu simples para terminal em Javascript para as aulas de Lógica e Algoritmos I.
 
+## Depência(s)
+Scanf: scanf is a C like scanf/sscanf module for node.js which can help you with that.
+https://github.com/Lellansin/node-scanf
+
 ## Exemplo de uso - Linux
 
 1) No terminal, crie um pasta chamada "ProjMenu".
