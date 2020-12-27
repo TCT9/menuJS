@@ -1,60 +1,69 @@
+let MenuJS = () => {
 
-let new_Menu = ({menu, prompt, function_default, key_sair, function_sair, array_keys, array_functions}) => {
+    return {
+        //array_strMenu: array de strings que formam um menu
+        Menu: (array_strMenu) => {
 
-    //Isolando nossas variáveis e métodos para serem privados.
+            //imprimir o menu
+            array_strMenu.forEach(element => {
+                console.log(element);
+            });
 
-        this.menu = menu;           //array de strings com os itens do menu
-        this.prompt = prompt;       //texto do prompt. Aguarda a digitação de uma opção
-        this.function_default = function_default; //função que executa uma ação padrão, caso nenhum opção válida seja selecionada
-        this.key_sair = key_sair;   //chave que informar que o menu deve ser encerrado
-        this.function_sair = function_sair; //função que executa a ação de sair do menu
-        this.array_keys = array_keys;   //array de valores representando um chave de opção no menu
-        this.array_functions = array_functions; //array de funções que serão chamadas para cada opção
+            return {
+                //prompt para receber uma opção do menu. Após a impressão não deve pular uma linha
+                Prompt: (str_prompt) => {
+                    return {
+                        //array de keys
+                        Keys: (array_strKeys) => {
+                            return {
+                                //key para sair do menu
+                                KeyExit: (str_keyExit) => {
+                                    return {
+                                        InvalidKeyCase: (str_Alerta_key_Invalido) => {
+                                            return {
+                                                CallBackFuncs: (array_funcs) => {
 
-        //imprime um array de menus no terminal
-        this.menu.forEach(element => {
-            console.log(element);
-        });
+                                                    //lê a entrada do usuário
+                                                    let scanf = require('scanf');
 
-        const modReadLine = require('readline');
-        const objPrompt = modReadLine.createInterface({
-            input: process.stdin,
-            output: process.stdout,
-            terminal: true,
-            prompt: this.prompt
-        });
-        
-        objPrompt.prompt();  //exibe o prompt
-
-        //observa o evento 'on', que ocorre após o usuário teclar 'enter' no prompt 
-        objPrompt.on('line', (linha) => {
-
-            let resposta = linha.trim(); //retirar os espaços extras
-            let opcao_eh_valida = false;
-
-            for (let i = 0; i < this.array_keys.length; i++){
-
-                if (resposta === this.array_keys[i]){
-                    opcao_eh_valida = true;
-                    this.array_functions[i]();
+                                                    //Exibe o prompt até que seja selecionada a opção de sair
+                                                    function recursive() {
+                        
+                                                        process.stdout.write(str_prompt);
+                                                        let opcao = scanf("%d");
+                                                        let opcao_eh_invalida = true;
+                                    
+                                                        for(let i = 0; i < array_strKeys.length; i++){
+                                                            if (opcao === i+1){
+                                                                array_funcs[i]();
+                                                                opcao_eh_invalida = false;
+                                                                break;
+                                                            }
+                                                        }
+                            
+                                                        if (opcao_eh_invalida === true){
+                                                            console.log(str_Alerta_key_Invalido);
+                                                        }
+                                                        
+                                                        if (opcao !== parseInt(str_keyExit)) {
+                                                            recursive();
+                                                        }
+                            
+                                                    }
+                        
+                                                    recursive();
+                                                }
+                                            };
+                                        }
+                                    };
+                                }
+                            };
+                        }
+                    };
                 }
-
-                if (opcao_eh_valida) {break;}   //se encontrar uma alternativa válida, sair do loop
-                
-            }
-
-            if (resposta === this.key_sair){
-                this.function_sair();
-                objPrompt.close();      //fechar o objeto
-
-            }else{
-
-                if (opcao_eh_valida == false) {this.function_default();}
-                objPrompt.prompt();         //exibr novamente o prompt novamente
-            }
-
-        });
-    
+            };
+        }
+    };
 }
 
- module.exports = new_Menu;
+module.exports = MenuJS;
