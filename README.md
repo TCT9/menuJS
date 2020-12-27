@@ -33,7 +33,7 @@ Após isso a dependência será baixada e estará pronta para ser usada em nosso
 
     `tct9@tct9-Aspire-A515-51G:~\ProjMenu$ code .`
 
-O VS Code será inicializado na pasta ProjMenu. Agora crie um arquivo chamado "index.js" ṕara fazer um teste.
+O VS Code será inicializado na pasta ProjMenu. Agora crie um arquivo chamado "index.js" para fazer um teste.
 
     let MenuJS = require('menujs');
 
